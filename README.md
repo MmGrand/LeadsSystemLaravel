@@ -1,66 +1,98 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# LeadsSystemLaravel(техническое задание)
 
-## About Laravel
+## Оглавление
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [Задание](#задание)
+- [О проекте](#о-проекте)
+- [Используемые технологии](#используемые-технологии)
+- [Установка](#установка)
+- [Контакты](#контакты)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Задание
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Сделать форму подачи заявки с созданием лида (под лидами понимают пользователей, которые проявили интерес к товару или услуге. В нашем случае, заполнили форму) на Laravel:
 
-## Learning Laravel
+- регистрация: подтверждение регистрации аккаунта должно приходить на почту, в качестве почтового сервера можно использовать любой почтовый сервис предоставляющий бесплатную услугу smtp
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- авторизация: пользователь может авторизоваться и  выйти из своей учетной записи
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- страница профиля: должны быть включены все необходимые функции Laravel (вход, регистрация, смена пароля, подтверждение почты, выход) для реализации проекта, все остальные функции должны быть отключены
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+На главной странице проекта, должна быть форма обращения клиента и возможность регистрации/авторизации  
 
-## Laravel Sponsors
+Форма обращения клиента (видят неавторизованные пользователи) должна включать следующие поля: имя, фамилия, номер телефона, e-mail, текст обращения, кнопка “отправить”. 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+После логина, авторизованный пользователь видит страницу со списком лидов, информацию о общем количестве лидов, а также информацию о количестве лидов в каждом из статусов. 
 
-### Premium Partners
+В списке отображается  id лида, Имя, Фамилия, e-mail, номер телефона, дата создания лида,  выпадающий список выбора статуса для каждого лида (статус должен применятся при выборе) по умолчанию у всех лидов статус “Новый”, кнопка удаления лида.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Статусы лидов: новый, в работе, завершен
 
-## Contributing
+Для статусов необходимо сделать отдельную модель которую необходимо связать с лидами
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Должна быть возможность редактирования данных лида (отображаются поля, с заполненными данными по лиду, если были внесены изменения кнопка “Сохранить” становится активной)
 
-## Code of Conduct
+По итогу выполнения данного задания, ожидаем от кандидата ссылку на репозиторий проекта. Инструкция по развертыванию проекта должна быть в README.md. 
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Задания без инструкции, оцениваться не будут. 
 
-## Security Vulnerabilities
+При оценке тестового задания также будут учитываться, внешний вид и умение писать документацию. 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## О проекте
 
-## License
+Проект реализован для технического задания. Вся суть его написана выше. Возможно, я не допонял тему с редактированием заявки, но сделал с помощью отдельной страницы. Использовал только английский язык. Также для быстрой реализации функций авторизации, использовал встроенные возможности Laravel для создания базовой структуры (laravel/ui --dev). Чтобы проверять почтовые возможности, использовал mailtrap.io. Добавил страницу 404 для непредвиденных страниц для пользователя. 
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+При миграциях создаётся тестовый пользователь с данными:  
+**Логин:** test@example.com  
+**Пароль:** 12345678
+
+## Используемые технологии
+
+- **Laravel:** Фреймворк для разработки веб-приложений на PHP.
+- **MySQL:** Система управления базами данных для хранения информации.
+- **Bootstrap 5:** Утилитарный CSS фреймворк для быстрой стилизации.
+- **VITE:** Быстрый сборщик и инструмент для разработки.
+- **npm:** Менеджер пакетов для JavaScript.
+- **JS:** JavaScript используется для динамического поведения на стороне клиента.
+
+## Установка
+
+Пошаговые инструкции по установке и настройке моего проекта.
+
+1. Клонируйте репозиторий:
+   ```sh
+   git clone https://github.com/MmGrand/LeadsSystemLaravel.git
+   ```
+2. Перейдите в папку:
+   ```sh
+   LeadsSystemLaravel
+   ```
+3. Скопируйте env и настройте под себя:
+    ```sh
+    cp .env.example .env
+    ```
+4. Откройте её в вашем IDE и запустите установку зависимостей:
+    ```sh
+    composer install
+    ```
+5. Также для npm:
+   ```sh
+    npm install
+    ```
+6. Запустите сервер через docker или другую программу, как openserver panel, либо:
+    ```sh
+    php artisan serve
+    ```
+7. Запустите работу vite:
+    ```sh
+    npm run dev
+    ```
+8. Запустите установку миграций с заполнением:
+    ```sh
+    php artisan migrate --seed
+    ```
+
+## Контакты
+
+Если у вас есть вопросы или предложения, вы можете связаться со мной по ссылкам в профиле.
