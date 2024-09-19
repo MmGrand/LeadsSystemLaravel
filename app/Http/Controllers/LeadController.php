@@ -15,7 +15,7 @@ class LeadController extends Controller
     public function store(StoreRequest $request): RedirectResponse
     {
         $data = $request->validated();
-        $data['status'] = $data['status'] ?? 1;
+        $data['status'] = 1;
 
         Lead::create($data);
 
